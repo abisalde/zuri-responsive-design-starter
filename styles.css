@@ -7,9 +7,18 @@
     font-family: 'Rubik', sans-serif;
 }
 
-div.nav-bar {
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    overflow: auto;
+}
+
+header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem 6rem;
     width: 100vw;
     background: #304353;
@@ -18,12 +27,14 @@ div.nav-bar {
 div.logo {
     font-size: 1.5rem;
     color: #bcc3c7;
+    margin-right: 2rem;
+    position: relative;
+    right: 4rem;
 }
 
-ul.nav-links {
-    display: flex;
-    margin: 0;
-    padding: 0;
+nav ul {
+    display: inline-flex;
+    margin-left: 5.124rem;
 }
 
 ul li {
@@ -34,7 +45,7 @@ ul li {
 
 ul li a {
     text-decoration: none;
-    color: #88949B;
+    color: #88949b;
     padding: 0.5vw;
 }
 
@@ -42,6 +53,112 @@ ul li a:hover {
     color: #304353;
     background: #fff;
     padding: 0.5rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 1.5625rem;
+    height: 0.125rem;
+    margin: 0.3125rem auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #bcc3c7;
+}
+
+/* MAKE THE HAMBURGER REPONSIVE */
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -160%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 0.625rem;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 0.625rem 1.6875rem rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+        margin: auto;
+    }
+
+    .hamburger {
+        display: block;
+        user-select: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        right: -1.125rem;
+    }
+
+    li.nav-links {
+        margin: 1.25rem 0rem;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(0.425rem) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-0.425rem) rotate(-45deg);
+    }
+}
+
+/* Reponsiveness and Media-Query **/
+@media only screen and (max-device-width: 700px) and (min-width: 320px) {
+    div.hero-section {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 8rem 3.52rem !important;
+    }
+
+    div.background {
+        padding: 0.32rem 0.92rem 1.125rem;
+        min-width: 300px;
+        min-height: 300px !important;
+    }
+
+    div.hero-background-pos {
+        display: none;
+    }
+
+    div.snapshot-box-content {
+        flex-flow: column nowrap;
+    }
+
+    div.snaphot-team p {
+        padding-left: 0.125rem;
+        padding-right: 0.125rem;
+    }
+
+    div.footer-input {
+        flex-flow: column nowrap;
+    }
+
+    input[type='text'],
+    input[type='email'] {
+        width: 100% !important;
+        margin: 1.12rem auto;
+    }
+
+    textarea {
+        width: 100% !important;
+    }
 }
 
 div.hero-section {
@@ -64,7 +181,7 @@ div.hero-content-heading h3 {
 div.hero-content-heading p {
     text-align: center;
     padding-top: 0.7rem;
-    color: #88949B;
+    color: #88949b;
     font-size: 1rem;
     letter-spacing: 2px;
     font-weight: 300;
@@ -78,7 +195,7 @@ div.hero-content-btn {
 }
 
 div.hero-content-btn a {
-    background: #E44C65;
+    background: #e44c65;
     text-decoration: none;
     color: #bcc3c7;
     font-size: 0.9rem;
@@ -113,7 +230,7 @@ div.background h4 {
 }
 
 div.background p {
-    color: #A6A5AA;
+    color: #a6a5aa;
     padding-left: 2rem;
     font-size: 0.8rem;
     letter-spacing: 2px;
@@ -144,7 +261,7 @@ div.snapshot-team h2 {
 }
 
 div.snapshot-team p {
-    color: #A6A5AA;
+    color: #a6a5aa;
     font-size: 1rem;
     letter-spacing: 2px;
     padding-top: 0.8rem;
@@ -186,7 +303,7 @@ div.box3 {
 div.box3 h5 {
     text-align: center;
     padding-top: 2rem;
-    color: #E44C65;
+    color: #e44c65;
     font-size: 1rem;
 }
 
@@ -198,13 +315,12 @@ div.circle {
     border-radius: 50%;
     background: #bcc3c7;
     margin-top: 2rem;
-    
 }
 
 div.box1 h5 {
     text-align: center;
     padding-top: 2rem;
-    color: #E44C65;
+    color: #e44c65;
     font-size: 1rem;
 }
 
@@ -225,17 +341,17 @@ div.gallery-content h4 {
 }
 
 div.gallery-content p {
-    color: #A6A5AA;
+    color: #a6a5aa;
     font-size: 1rem;
     letter-spacing: 2px;
     padding-top: 0.8rem;
 }
 
 div.gallery-img {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   padding-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 3rem;
 }
 
 div.img {
@@ -264,7 +380,7 @@ div.footer-content h4 {
 }
 
 div.footer-content p {
-    color: #88949B;
+    color: #88949b;
     font-size: 1rem;
     letter-spacing: 2px;
     padding-top: 0.8rem;
@@ -277,7 +393,7 @@ div.footer-input {
     padding-top: 3rem;
 }
 
-input[type="text"] {
+input[type='text'] {
     margin-right: 10px;
     padding: 10px 20px;
     width: 25%;
@@ -289,7 +405,7 @@ input[type="text"] {
     border-radius: 2px;
 }
 
-input[type="email"] {
+input[type='email'] {
     margin-right: 10px;
     padding: 10px 20px;
     width: 25%;
@@ -302,7 +418,7 @@ input[type="email"] {
 }
 
 ::placeholder {
-    color: #A6A5AA;
+    color: #a6a5aa;
 }
 
 div.footer-textarea {
@@ -330,7 +446,7 @@ div.footer-btn {
 }
 
 div.footer-btn a {
-    background: #E44C65;
+    background: #e44c65;
     text-decoration: none;
     color: #f0f0f0;
     font-size: 0.9rem;
@@ -341,7 +457,7 @@ div.footer-btn a {
 
 div.footer h6 {
     text-align: center;
-    color: #88949B;
+    color: #88949b;
     font-size: 1rem;
     padding-top: 6rem;
 }
